@@ -1,0 +1,272 @@
+/** COLOR PALETTE:
+  *
+  * Background: #F5F5F5 (GREY 100)
+  * Primary Text: black
+  *
+  * Primary color: #3F51B5 (INDIGO)
+  * Primary color_text : white
+  * Accent color: #CDDC39 (LIME)
+  * Accent color_text: black
+  */
+
+/* GLOBAL */
+
+* {
+    font-family: Roboto, 'Arial', sans-serif; /* #4 use #roboto #font*/
+
+    /* Reset margins and paddings #heartbeat #spacing */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+button, strong {
+    text-transform: uppercase;
+}
+
+/* LAYOUT #5 #split */
+
+#channels {
+    /* #5 #split #left align the channels */
+    position: absolute;
+    height: 100%;
+    width: 40%;
+
+    background-color: #3F51B5; /* temporary background color to see the effect, is completely hidden now */
+}
+
+#chat {
+    /* #5 #split #right align the rest */
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    left: 40%;
+}
+
+#messages {
+    /* #5 #messages are now wrapped in a div to #scroll properly */
+    position: absolute;
+    width: 100%;
+    top: 64px;
+    bottom: 72px;
+    overflow-y: auto;
+}
+
+/* APP BAR */
+
+h1 {
+    background-color: #3F51B5;
+    color: white;
+
+    /* #5 #app-bar #general settings for both bars */
+    height: 64px;
+    font-size: 20px;
+    font-weight: 500;
+
+    /* #5 #app-bar spacing */
+    box-sizing: border-box;
+    padding: 24px 16px 20px 16px;
+
+    /* #5 MOOCUS image alignment */
+    position: relative; /* we need this, so that the image's absolute position is relative to the app bar */
+}
+
+h1#left-app-bar {
+    /* #5 LEFT-APP-BAR spacing */
+    padding-left: 72px;
+}
+
+h1#left-app-bar img {
+    /* #5 #app-bar image #bottom-align */
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+}
+
+h1 a {
+    /* #6 #channels fix the #link color in app bar*/
+    color: white;
+}
+
+h1 #channel-star {
+    /* #6 #liking #filled  */
+    position:absolute;
+    right: 16px;
+}
+
+/* CHANNELS LIST */
+
+ul {
+    list-style-type: none;
+    background-color: white;
+
+    /* #5 position #channels list and let it #scroll */
+    position: absolute;
+    width: 100%;
+    top: 64px; /* the app bar's height */
+    bottom: 72px; /* the tab bar's height */
+    overflow-y: auto; /* this adds scroll bars on demand */
+}
+
+li {
+    box-sizing: border-box;
+    height: 48px;
+    padding: 16px;
+    font-size: 16px;
+    border-bottom: 1px solid #F5F5F5;
+
+    /* #5 #channels position channel-meta #icons within the li needs relative positioning (relative stops absolute) */
+    position: relative;
+}
+
+li .channel-meta {
+    /* #5 #channels right-align channel-meta #icons absolute = relative to li */
+    position: absolute;
+    right: 16px;
+    top: 12px;
+}
+
+li img {
+    vertical-align: middle;
+}
+
+li.selected {
+    color: #3F51B5;
+    border-left: 4px solid #3F51B5;
+}
+
+/* TAB BAR */
+
+/* #5 #smileys #lazy: we can reuse most of the tab-bar's styles for the chat-bar */
+#tab-bar, #chat-bar {
+    background-color: white;
+    text-align: center;
+
+    /* #5 #tab-bar #bottom */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    /* #5 #tab-bar #flexify the buttons*/
+    display: flex;
+}
+
+/* #5 #smileys #lazy: we can reuse most of the tab-bar buttons' styles for the chat-bar buttons */
+#tab-bar button, #chat-bar button {
+    background-color: white;
+    border: none;
+    font-size: 13px;
+    width: 33%;
+    height: 72px;
+    padding: 16px;
+
+    /* #5 #tab-bar #flexify the buttons by growing them equally */
+    flex-grow: 1;
+}
+
+#tab-bar button.selected {
+    color: #3F51B5;
+    border-bottom: 4px solid #3F51B5;
+}
+
+#tab-bar button img {
+    display: block;
+    margin: 0 auto 4px auto;
+}
+
+/* #5 CHAT BAR */
+
+#chat-bar button {
+    /* #5 #smileys #override button styles. We set the chat bar to appear like a tab-bar above. This overrides the tab bar's button scaling */
+    width: auto;
+    flex-grow: 0;
+}
+
+#emojis {
+    /* #5 #smileys #emojis menu */
+    /* colors and borders */
+    background-color:white;
+    border: 1px solid black;
+
+    /* size & alignment */
+    position: absolute;
+    box-sizing: border-box;
+    height: 300px;
+    width: 300px;
+    left: 16px;
+    top: -284px;
+    padding: 16px;
+
+    /* font and left-align text */
+    text-align: left;
+    font-size: 28px;
+
+    /* scroll when it has too many emojis */
+    overflow-y: auto;
+
+    /* #6 #hide the #smile menu */
+    display: none;
+}
+
+/* MESSAGES */
+
+.message {
+    width: 80%;
+    margin-bottom: 8px;
+    margin-left: 2.5%;
+
+    /* #5 #messages #reposition right/bottom alignment of button relative to the chat message (stops absolute) */
+    position: relative;
+}
+
+.message h3 {
+    /* Message-meta medium-sized text, non-italic */
+    font-size: medium;
+
+    /* #5 #messages distribute metadata content evenly by flexbox #tweaks */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.message h3 a {
+    /* What3words link is primary test */
+    color: black;
+
+    /* #5 #messages #column fixing width of w3w and time lets the date appear in a column I */
+    width: 30%;
+}
+
+.message h3 em {
+    /* Larger text, non-italic*/
+    font-size: larger;
+    font-style: normal;
+
+    /* #5 #messages #column fixing width of w3w and time lets the date appear in a column II */
+    width: 20%;
+    text-align: right;
+}
+
+.message p {
+    background-color: white;
+    padding: 16px;
+}
+
+.message button {
+    /* +5 min. button*/
+    background-color: #CDDC39;
+    color: black;
+    text-transform: uppercase;
+
+    /* #5 #messages #reposition right/bottom alignment of button */
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+}
+
+.message.own {
+    margin-left: 17.5%;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>chatter|app</title>
+
+    <!-- embed the roboto font. This needs to go above your css -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+    <!-- embed external css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- #6 embed #jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- #6 #external #action-->
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+<!-- channel area -->
+<div id="channels">
+
+    <!-- APP BAR for APP TITLE -->
+    <h1 id="left-app-bar"> <!-- #5 added id for main app bar-->
+        <img src="img/moocus.png" alt="Moocus, the chatty duck!" style="height: 56px;">
+        chatter|app
+    </h1>
+
+    <!-- CHANNELS -->
+    <ul>
+        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
+        <li onclick="switchChannel('#Yummy')">
+            #Yummy
+            <!-- #5 #channels #icons now grouped in .channel-meta span -->
+            <span class="channel-meta">
+                <img src="img/star-o.png" alt="not starred">
+                <!-- #5 #channels #icons now with chevron -->
+                <img src="img/chevron-right.png" alt="select">
+            </span>
+        </li>
+        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
+        <li class="selected" onclick="switchChannel('#SevenContinents')">
+            #SevenContinents
+            <!-- #5 #channels #icons now grouped in .channel-meta span -->
+            <span class="channel-meta">
+                <img src="img/star.png" alt="starred">
+                <!-- #5 #channels #icons now with chevron -->
+                <img src="img/chevron-right.png" alt="select">
+            </span>
+        </li>
+        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
+        <li onclick="switchChannel('#KillerApp')">
+            #KillerApp
+            <!-- #5 #channels #icons now grouped in .channel-meta span -->
+            <span class="channel-meta">
+                <img src="img/star-o.png" alt="not starred">
+                <!-- #5 #channels #icons now with chevron -->
+                <img src="img/chevron-right.png" alt="select">
+            </span>
+        </li>
+        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
+        <li onclick="switchChannel('#FirstPersonOnMars')">
+            #FirstPersonOnMars
+            <!-- #5 #channels #icons now grouped in .channel-meta span -->
+            <span class="channel-meta">
+                <img src="img/star.png" alt="starred">
+                <!-- #5 #channels #icons now with chevron -->
+                <img src="img/chevron-right.png" alt="select">
+            </span>
+        </li>
+        <!-- #6 #channels #click calls our switchChannel with the corresponding name as an argument -->
+        <li onclick="switchChannel('#Octoberfest')">
+            #Octoberfest
+            <!-- #5 #channels #icons now grouped in .channel-meta span -->
+            <span class="channel-meta">
+                <img src="img/star-o.png" alt="not starred">
+                <!-- #5 #channels #icons now with chevron -->
+                <img src="img/chevron-right.png" alt="select">
+            </span>
+        </li>
+
+    </ul>
+
+    <!-- TAB BAR -->
+    <div id="tab-bar">
+        <!-- #6 #taptab buttons are getting ids with #hyphens and a #change listener calling selectTab.
+             Pass the #argument to select Tab -->
+        <button class="selected" id="tab-new" onclick="selectTab('#tab-new')">
+            <img src="img/lightbulb-o.png" alt="Bulb"> New
+        </button>
+        <button id="tab-trending" onclick="selectTab('#tab-trending')">
+            <img src="img/fire.png" alt="Hot"> Trending
+        </button>
+        <button id="tab-favorites" onclick="selectTab('#tab-favorites')">
+            <img src="img/star.png" alt="Star"> Favorites
+        </button>
+    </div>
+</div>
+
+<div id="chat">
+
+    <!-- APP BAR for CHANNEL TITLE -->
+    <h1>
+        <!-- #6 #channels #switcher needs to identify the channel name, so let's give it an ID -->
+        <span id="channel-name">#SevenContinents</span>
+        <!-- #6 #channels #location also needs an id -->
+        <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
+        <!-- #6 #liking channels requires a #filled star / with its #click listener -->
+        <img id="channel-star" src="img/star.png" alt="Favourite" onclick="star()">
+    </h1>
+
+    <!-- #5 #messages are now wrapped in a div to #scroll properly */ -->
+    <div id="messages">
+
+        <div class="message own">
+            <h3><a href="http://w3w.co/cheeses.yard.applies" target="_blank"><strong>cheeses.yard.applies</strong></a>
+                Wed, June 20th, 13:37 <em>15 min. left</em></h3>
+            <p>What's the place you folks call home?</p>
+            <button>+5 min.</button>
+        </div>
+
+        <div class="message">
+            <h3><a href="http://w3w.co/truck.cotton.zone" target="_blank"><strong>truck.cotton.zone</strong></a>
+                Wed, June 20th, 13:39 <em>4 min. left</em></h3>
+            <p>BRISBANE! Hang loose!</p>
+            <button>+5 min.</button>
+        </div>
+
+        <div class="message">
+            <h3><a href="http://w3w.co/thus.best.dishes" target="_blank"><strong>thus.best.dishes</strong></a>
+                Wed, June 20th, 14:02 <em>12 min. left</em></h3>
+            <p>The big apple.</p>
+            <button>+5 min.</button>
+        </div>
+
+        <div class="message">
+            <h3><a href="http://w3w.co/driveway.helper.magazine"
+                   target="_blank"><strong>driveway.helper.magazine</strong></a>
+                Wed, June 20th, 14:02 <em>7 min. left</em></h3>
+            <p>Eu sou um Cariocas.</p>
+            <button>+5 min.</button>
+        </div>
+
+        <div class="message">
+            <h3><a href="http://w3w.co/escapes.pitch.saucepan"
+                   target="_blank"><strong>escapes.pitch.saucepan</strong></a>
+                Wed, June 20th, 14:07 <em>14 min. left</em></h3>
+            <p>Greetings from the western cape!</p>
+            <button>+5 min.</button>
+        </div>
+
+        <div class="message">
+            <h3><a href="http://w3w.co/meanings.identity.pays"
+                   target="_blank"><strong>meanings.identity.pays</strong></a>
+                Wed, June 20th, 04:08 <em>15 min. left</em></h3>
+            <p>北京</p>
+            <button>+5 min.</button>
+        </div>
+
+    </div>
+
+    <!-- #5 #smileys #insert the chat-bar -->
+    <div id="chat-bar"> <!-- #6 #smile #show the menu on click -->
+        <button id="emojis-button" onclick="toggleEmojis()"><img src="img/smile-o.png" alt="Smiley"></button>
+        <div id="emojis">&#x1F601; &#x1F602; &#x1F603; &#x1F604; &#x1F605; &#x1F606; &#x1F607;</div>
+    </div>
+</div>
+
+</body>
+</html>
