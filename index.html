@@ -38,7 +38,7 @@
             #Yummy
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <span class="far fa-star"></span>
+                <span onclick="channelStar(yummy)" class="fa-star far"></span>
                 <!-- #5 #channels #icons now with chevron -->
                 <span class="fas fa-chevron-right"></span>
             </span>
@@ -48,7 +48,7 @@
             #SevenContinents
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <span class="fas fa-star"></span>
+                <span onclick="channelStar(sevenContinents)" class="fa-star fas"></span>
                 <!-- #5 #channels #icons now with chevron -->
                 <span class="fas fa-chevron-right"></span>
             </span>
@@ -58,7 +58,7 @@
             #KillerApp
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <span class="far fa-star"></span>
+                <span onclick="channelStar(killerApp)" class="fa-star far"></span>
                 <!-- #5 #channels #icons now with chevron -->
                 <span class="fas fa-chevron-right"></span>
             </span>
@@ -68,7 +68,7 @@
             #FirstPersonOnMars
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <span class="fas fa-star"></span>
+                <span onclick="channelStar(firstPersonOnMars)" class="fa-star fas"></span>
                 <!-- #5 #channels #icons now with chevron -->
                 <span class="fas fa-chevron-right"></span>
             </span>
@@ -78,7 +78,7 @@
             #Octoberfest
             <!-- #5 #channels #icons now grouped in .channel-meta span -->
             <span class="channel-meta">
-                <span class="far fa-star"></span>
+                <span onclick="channelStar(octoberfest)" class="fa-star far"></span>
                 <!-- #5 #channels #icons now with chevron -->
                 <span class="fas fa-chevron-right"></span>
             </span>
@@ -111,7 +111,7 @@
         <!-- #6 #channels #location also needs an id -->
         <small id="channel-location">by <strong>cheeses.yard.applies</strong></small>
         <!-- #6 #liking channels requires a #filled star / with its #click listener -->
-        <span id="channel-star" class="fas fa-star" onclick="star()"></span>
+        <span id="channel-star" class="fa-star fas" onclick="star()"></span>
     </h1>
 
     <!-- #5 #messages are now wrapped in a div to #scroll properly */ -->

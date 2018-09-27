@@ -1,7 +1,7 @@
 /* #6 start the #external #action and say hello */
 console.log("App is alive");
 
-var currentChannel;
+var currentChannel = "#SevenContinents";
 
 var currentLocation = {
     longitude: 34.02055,
@@ -27,8 +27,10 @@ function switchChannel(channelName) {
     document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/' + channelName.createdBy +'" target="_blank"><strong>' + channelName.createdBy + '</strong></a>';
 
     /* #6 #liking channels on #click */
-    //Original code
-    //$('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star-o.png');
+    //Matches app bar star to channel star
+    $('#channel-star').removeClass('fas far');
+    let starType = channelName.starred ? 'fas' : 'far';
+    $('#channel-star').addClass(starType);
     
     /* #6 #highlight the selected #channel.
        This is inefficient (jQuery has to search all channel list items), but we'll change it later on */
@@ -39,6 +41,33 @@ function switchChannel(channelName) {
 /* #6 #liking a channel on #click */
 function star() {
     $('#channel-star').toggleClass('far fas');
+
+    //current channel star class
+    let appBarClass = $('#channel-star').attr('class');
+    //change channel object property
+    currentChannel.starred = (appBarClass == 'fa-star fas' ? true : false);
+
+    //changes the star for the currently selected channel
+    //current channel star
+    let currentChannelStar = '#channels li:contains(' + currentChannel.name + ') .fa-star';
+    //determine object star type
+    let starType = currentChannel.starred ? 'fas' : 'far';
+    //removes previous class on channel star
+    $(currentChannelStar).removeClass('fas far');
+    //adds new class on channel star
+    $(currentChannelStar).addClass(starType);
+}
+
+function channelStar(channelName) {
+    //current channel star
+    let currentChannelStar = '#channels li:contains(' + channelName.name + ') .fa-star';
+    //toggle star
+    $(currentChannelStar).toggleClass('far fas');
+    //current channel star class
+    let channelStarClass = $(currentChannelStar).attr('class');
+
+    //change channel object property
+    channelName.starred = (channelStarClass == 'fa-star fas' ? true : false);
 }
 
 /**
