@@ -91,12 +91,6 @@ h1 a {
     color: white;
 }
 
-h1 #channel-star {
-    /* #6 #liking #filled  */
-    position:absolute;
-    right: 16px;
-}
-
 /* CHANNELS LIST */
 
 ul {
@@ -128,11 +122,11 @@ li .channel-meta {
     right: 16px;
     top: 12px;
 }
-
+/*
 li img {
     vertical-align: middle;
 }
-
+*/
 li.selected {
     color: #3F51B5;
     border-left: 4px solid #3F51B5;
@@ -171,12 +165,12 @@ li.selected {
     color: #3F51B5;
     border-bottom: 4px solid #3F51B5;
 }
-
+/*
 #tab-bar button img {
     display: block;
     margin: 0 auto 4px auto;
 }
-
+*/
 /* #5 CHAT BAR */
 
 #chat-bar button {
@@ -269,4 +263,22 @@ li.selected {
 
 .message.own {
     margin-left: 17.5%;
+}
+
+/* FontAwesome Icons */
+span .fa-star, span .fa-chevron-right, #emojis-button span {
+    font-size: 24px;
+}
+
+#tab-bar button span {
+    font-size: 24px;
+    display: block;
+    margin: 0 auto 4px auto;
+}
+
+h1 #channel-star {
+    /* #6 #liking #filled  */
+    font-size: 24px;
+    position:absolute;
+    right: 16px;
 }
