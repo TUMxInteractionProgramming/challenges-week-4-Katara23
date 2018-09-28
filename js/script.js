@@ -92,3 +92,42 @@ function toggleEmojis() {
     /* $('#emojis').show(); // #show */
     $('#emojis').toggle(); // #toggle
 }
+
+function Message(text) {
+    let timeNow = Date.now();
+    let timeIn15 = timeNow + 900000;
+
+    this.createdBy = currentLocation.what3words;
+    this.latitude = currentLocation.latitude;
+    this.longitude = currentLocation.longitude;
+    this.createdOn = (new Date(timeNow)).toLocaleString();
+    this.expiresOn = (new Date(timeIn15)).toLocaleString();
+    this.text = text;
+    this.own = true;
+}
+
+function createMessageElement(messageObject) {
+    let ownClass = messageObject.own ? ' own' : '';
+
+    return '<div class="message' + ownClass + '">' + 
+        '<h3><a href="http://w3w.co/' + messageObject.createdBy + '" target="_blank">' +
+        '<strong>' + messageObject.createdBy + '</strong></a>' +
+        messageObject.createdOn + ' <em>15 min. left</em></h3>' +
+        '<p>' + messageObject.text + '</p>' +
+        '<button>+5 min.</button>' + 
+    '</div>';
+}
+
+function sendMessage() {
+    //message from user input
+    let text = $('#input').val();
+    //create message object
+    let userMessage = new Message(text);
+    //append message to chat
+    $('#messages').append(createMessageElement(userMessage))
+    //clears input field
+    $('#input').val('');
+    
+    //scrolls to the bottom of the div
+    $('#messages').scrollTop($('#messages').prop("scrollHeight"));
+}

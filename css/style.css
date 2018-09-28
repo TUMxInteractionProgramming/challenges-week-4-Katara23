@@ -266,7 +266,7 @@ li.selected {
 }
 
 /* FontAwesome Icons */
-span .fa-star, span .fa-chevron-right, #emojis-button span {
+span .fa-star, span .fa-chevron-right, #emojis-button span , #message-send span{
     font-size: 24px;
 }
 
@@ -281,4 +281,15 @@ h1 #channel-star {
     font-size: 24px;
     position:absolute;
     right: 16px;
+}
+
+#chat-bar input {
+    font-size: larger;
+    flex: 1;
+    border: none;
+}
+
+#message-send {
+    position: absolute;
+    right: 0;
 }
